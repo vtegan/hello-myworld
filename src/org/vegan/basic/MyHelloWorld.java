@@ -21,7 +21,10 @@ public class MyHelloWorld {
 		System.out.println("Example of Streams\n");
 		
 		String stooge = "Larry";
-		filterStooge(stooge);
+		List<String> lstResults = filterStooge(stooge);
+		
+		//print results.
+		lstResults.forEach(System.out::println);			//output : spring node
 
 	}
 
@@ -29,15 +32,16 @@ public class MyHelloWorld {
 	 * Method uses Java 8 Streams to filter out elements of a List.
 	 * 
 	 * @param stooge - Name of the Stooge that we want to filter out.
+	 * @return 
 	 */
-	private static void filterStooge(String stooge) {
+	private static List<String> filterStooge(String stooge) {
 		List<String> lines = Arrays.asList("Larry", "Curly", "Moe");
 
-		List<String> result = lines.stream() 			//convert list to stream
+		List<String> lstResults = lines.stream() 			//convert list to stream
 			.filter(line -> !stooge. equals (line))	//filters the line, equals to stooge
 			.collect(Collectors.toList());			//collect the output and convert streams to a List
 
-		result.forEach(System.out::println);			//output : spring node
+		return lstResults;
 	}
 
 }
