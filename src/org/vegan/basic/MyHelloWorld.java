@@ -4,6 +4,7 @@
 package org.vegan.basic;
 
 /**
+ * I added a comment from the GitHub repository.
  * @author egan
  *
  */
