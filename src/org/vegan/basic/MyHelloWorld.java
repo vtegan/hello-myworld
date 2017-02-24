@@ -3,9 +3,13 @@
  */
 package org.vegan.basic;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * I added a comment from the GitHub repository.
- * @author egan
+ * See https://www.mkyong.com/java8/java-8-streams-filter-examples/
  *
  */
 public class MyHelloWorld {
@@ -14,8 +18,26 @@ public class MyHelloWorld {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.println("Hello My World");
+		System.out.println("Example of Streams\n");
+		
+		String stooge = "Larry";
+		filterStooge(stooge);
 
+	}
+
+	/**
+	 * Method uses Java 8 Streams to filter out elements of a List.
+	 * 
+	 * @param stooge - Name of the Stooge that we want to filter out.
+	 */
+	private static void filterStooge(String stooge) {
+		List<String> lines = Arrays.asList("Larry", "Curly", "Moe");
+
+		List<String> result = lines.stream() 			//convert list to stream
+			.filter(line -> !stooge. equals (line))	//filters the line, equals to stooge
+			.collect(Collectors.toList());			//collect the output and convert streams to a List
+
+		result.forEach(System.out::println);			//output : spring node
 	}
 
 }
